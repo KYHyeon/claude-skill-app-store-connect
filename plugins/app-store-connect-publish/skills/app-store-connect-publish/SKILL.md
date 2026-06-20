@@ -18,9 +18,16 @@ read-only calls — not from docs/forums, which are often stale.
 
 ## The gotchas
 
-- **App Privacy labels are NOT done by `deliver`.** Separate fastlane action:
-  `upload_app_privacy_details_to_app_store` + a `privacy.json`. Easy to assume
-  `deliver` covers it — it doesn't.
+- **App Privacy labels are NOT in the public ASC API at all**, and NOT done by
+  `deliver`. The `appDataUsages` resources don't exist on the public REST API,
+  so the `.p8` API key can't set them. The only programmatic route is the
+  fastlane action `upload_app_privacy_details_to_app_store`, which authenticates
+  with **Apple ID username/password + 2FA** (a spaceship session hitting the
+  internal endpoints), not the API key — and needs an Apple ID with owner/admin
+  on the team. The `json_path` file is a **root-level JSON array** of
+  `{category, purposes, data_protections}` (e.g. `category: "NAME"`,
+  `purposes: ["APP_FUNCTIONALITY"]`, `data_protections: ["DATA_LINKED_TO_YOU"]`).
+  For "no data collected": `[{"data_protections": ["DATA_NOT_COLLECTED"]}]`.
 - **Accessibility Nutrition Labels: ASC API resource `accessibilityDeclarations`,
   no mature fastlane wrapper.** Verified allowed ops: `CREATE, DELETE,
   GET_INSTANCE, UPDATE`. The bare collection `GET /v1/accessibilityDeclarations`

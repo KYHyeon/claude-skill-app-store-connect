@@ -1,38 +1,27 @@
-{
-  "_comment": "Template for fastlane `upload_app_privacy_details_to_app_store`. Edit to match what your app ACTUALLY collects. Docs: https://docs.fastlane.tools/uploading-app-privacy-details/",
-  "data": [
-    {
-      "category": "CONTACT_INFO",
-      "data_type": "EMAIL_ADDRESS",
-      "data_protections": ["DATA_LINKED_TO_YOU"],
-      "purposes": ["APP_FUNCTIONALITY"]
-    },
-    {
-      "category": "CONTACT_INFO",
-      "data_type": "NAME",
-      "_comment": "Collected via Google login (stored in Supabase user_metadata). Remove if you stop requesting name.",
-      "data_protections": ["DATA_LINKED_TO_YOU"],
-      "purposes": ["APP_FUNCTIONALITY"]
-    },
-    {
-      "category": "IDENTIFIERS",
-      "data_type": "USER_ID",
-      "data_protections": ["DATA_LINKED_TO_YOU"],
-      "purposes": ["APP_FUNCTIONALITY"]
-    },
-    {
-      "category": "USER_CONTENT",
-      "data_type": "OTHER_USER_CONTENT",
-      "_comment": "Links/notes/files the user saves.",
-      "data_protections": ["DATA_LINKED_TO_YOU"],
-      "purposes": ["APP_FUNCTIONALITY"]
-    },
-    {
-      "category": "DIAGNOSTICS",
-      "data_type": "CRASH_DATA",
-      "_comment": "Sentry. Set NOT_LINKED if you don't attach user identity to crashes.",
-      "data_protections": ["DATA_NOT_LINKED_TO_YOU"],
-      "purposes": ["APP_FUNCTIONALITY"]
-    }
-  ]
-}
+[
+  {
+    "category": "EMAIL_ADDRESS",
+    "purposes": ["APP_FUNCTIONALITY"],
+    "data_protections": ["DATA_LINKED_TO_YOU"]
+  },
+  {
+    "category": "NAME",
+    "purposes": ["APP_FUNCTIONALITY"],
+    "data_protections": ["DATA_LINKED_TO_YOU"]
+  },
+  {
+    "category": "USER_ID",
+    "purposes": ["APP_FUNCTIONALITY"],
+    "data_protections": ["DATA_LINKED_TO_YOU"]
+  },
+  {
+    "category": "OTHER_USER_CONTENT",
+    "purposes": ["APP_FUNCTIONALITY"],
+    "data_protections": ["DATA_LINKED_TO_YOU"]
+  },
+  {
+    "category": "CRASH_DATA",
+    "purposes": ["APP_FUNCTIONALITY"],
+    "data_protections": ["DATA_NOT_LINKED_TO_YOU"]
+  }
+]
