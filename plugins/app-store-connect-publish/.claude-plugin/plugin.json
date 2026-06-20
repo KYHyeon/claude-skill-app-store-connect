@@ -1,0 +1,11 @@
+{
+  "name": "app-store-connect-publish",
+  "description": "Publish iOS apps to App Store Connect / TestFlight and manage the store listing as code — metadata, App Privacy labels, accessibility nutrition labels, and age rating.",
+  "version": "0.1.0",
+  "author": {
+    "name": "KYHyeon",
+    "url": "https://github.com/KYHyeon"
+  },
+  "homepage": "https://github.com/KYHyeon/claude-skill-app-store-connect",
+  "keywords": ["ios", "app-store-connect", "fastlane", "eas", "testflight", "app-privacy", "accessibility"]
+}

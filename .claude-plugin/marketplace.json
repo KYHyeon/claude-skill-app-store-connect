@@ -1,0 +1,14 @@
+{
+  "name": "kyhyeon-skills",
+  "owner": {
+    "name": "KYHyeon",
+    "url": "https://github.com/KYHyeon"
+  },
+  "plugins": [
+    {
+      "name": "app-store-connect-publish",
+      "source": "./plugins/app-store-connect-publish",
+      "description": "Publish iOS apps to App Store Connect / TestFlight and manage the store listing as code — metadata, App Privacy labels, accessibility nutrition labels, and age rating."
+    }
+  ]
+}
