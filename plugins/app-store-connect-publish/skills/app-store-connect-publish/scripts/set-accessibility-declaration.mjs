@@ -6,6 +6,11 @@
 //   https://developer.apple.com/documentation/appstoreconnectapi
 // Treat the attribute list below as a STARTING POINT, not gospel.
 //
+// Verified live 2026-06: this resource allows CREATE/DELETE/GET_INSTANCE/UPDATE.
+// The bare collection GET (/v1/accessibilityDeclarations) is BLOCKED (403) —
+// to read existing declarations use the app-scoped path:
+//   GET /v1/apps/{appId}/accessibilityDeclarations
+//
 // Usage:
 //   ASC_KEY_ID=XXXX ASC_ISSUER_ID=xxxx-... ASC_KEY_PATH=./AuthKey.p8 \
 //   ASC_APP_ID=6xxxxxxxxx \
