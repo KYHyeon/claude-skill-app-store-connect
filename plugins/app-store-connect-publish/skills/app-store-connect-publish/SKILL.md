@@ -16,6 +16,24 @@ and the exceptions are easy to get backwards. Only the surprising facts are here
 The API facts below were **verified live against a real app (2026-06)** with
 read-only calls — not from docs/forums, which are often stale.
 
+## The job (how to operate)
+
+Read the WHOLE listing, fill what's missing, and update — but split by confidence:
+
+1. **Audit exhaustively (read-only first).** Run `scripts/audit-listing.mjs` to
+   list every empty field across app-info localizations, version localizations
+   (incl. screenshots), review detail, age rating. Also flag locales that exist
+   but are blank — those block submission.
+2. **Fill what's certain** — values you can derive unambiguously (e.g. a
+   locale-agnostic privacy-policy URL copied from another locale; review notes
+   the user already provided). Filling still writes to the LIVE listing, so get
+   a go-ahead before the write batch.
+3. **For anything uncertain, confirm before writing** — translations, which
+   locales to keep vs delete, screenshots, age-rating answers, anything that's a
+   judgment call. Present the choice (AskUserQuestion), then update.
+
+Never guess into a live write. "Certain → fill, uncertain → confirm" is the rule.
+
 ## The gotchas
 
 - **App Privacy labels are NOT in the public ASC API at all**, and NOT done by
@@ -59,6 +77,8 @@ read-only calls — not from docs/forums, which are often stale.
 
 ## Files
 
+- `scripts/audit-listing.mjs` — read-only sweep that lists every empty field
+  + blank locales (run this first; it's the "read the whole listing" step).
 - `scripts/asc-jwt.mjs` — mint the ES256 JWT for raw ASC API calls (the
   `dsaEncoding: 'ieee-p1363'` detail is a real gotcha; JWT max life 20 min).
   Verified working.
